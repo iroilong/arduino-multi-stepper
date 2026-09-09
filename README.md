@@ -50,8 +50,10 @@ MOVE_DEGREES(-45, 10),  // 反轉 45 度，約 10 秒完成
 1. 用 Arduino IDE 開啟 `Stepper3Motors.ino`。
 2. 選擇 `Arduino Mega or Mega 2560` 與正確的 COM port。
 3. 上傳程式到 Arduino。
-4. 打開 Serial Monitor，baud rate 選 `115200`。
-5. 輸入 `r` 開始動作，輸入 `s` 停止。
+4. 之後 Arduino 一上電就會自動開始三顆馬達動作，不需要接 USB 或打開 Serial Monitor。
+5. 上電後板上 `PB7/D13` 的 `L` LED 會持續閃爍，表示 MCU 還在運作。
+6. 如果有接 USB，可以打開 Serial Monitor，baud rate 選 `115200` 查看資訊。
+7. Serial Monitor 輸入 `s` 可停止馬達，輸入 `r` 可重新開始；LED 仍會持續閃爍。
 
 ## Serial Monitor 指令
 
@@ -66,5 +68,6 @@ MOVE_DEGREES(-45, 10),  // 反轉 45 度，約 10 秒完成
 - 不要把步進馬達直接接到 Arduino 腳位。
 - 不要用 Arduino 的 `5V` 腳供應這顆 `12V` 馬達。
 - ULN2003 驅動板的馬達電源請接外部 `12V` 電源。
+- Arduino 本身也要供電；可用 USB、DC 電源孔，或符合規格的外部供電方式。
 - Arduino `GND` 要和外部 12V 電源負極共地。
 - 改接線前請先拔掉馬達電源。

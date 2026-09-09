@@ -12,3 +12,6 @@
 - ⚠️ Open Issue - 2026-09-09: Motor 2 wording includes both half-turn and 70 degrees; current code uses 70 degrees until confirmed otherwise.
 - ⚠️ Open Issue - 2026-09-09: External 12V power supply current rating, physical wiring, and real movement direction are not confirmed yet.
 - ✅ Confirmed - 2026-09-09: Changed motor wiring pin plan to same-side even-numbered Mega header pins: Motor 1 D22/D24/D26/D28, Motor 2 D30/D32/D34/D36, Motor 3 D38/D40/D42/D44.
+- ✅ Confirmed - 2026-09-09: Changed startup behavior to auto-start motor programs on power-up while keeping Serial Monitor output and r/s/? commands available.
+- ✅ Confirmed - 2026-09-09: Added PB7/D13 heartbeat LED blink so users can see the MCU is alive after power-up.
+- ✅ Confirmed - 2026-09-09: User uploaded heartbeat LED build successfully from Arduino IDE and confirmed PB7/D13 onboard L LED blink.

@@ -26,6 +26,12 @@
 - Arduino `GND` 接外部 12V 電源 `-`。
 - 三片 ULN2003 的電源負極要共地。
 
+## 狀態 LED
+
+- Arduino Mega 2560 板上 `L` LED 接在 `PB7/D13`。
+- 程式會讓這顆 LED 持續閃爍，表示 MCU 還在執行。
+- 這顆 LED 不需要額外接線。
+
 ## 安全檢查
 
 - Arduino USB 只負責上傳程式與控制訊號。

@@ -1,7 +1,7 @@
 ## Current Work Checkpoint
 - Current objective: 建立 Arduino Mega 2560 專案，控制三顆 28BYJ-48 12V 步進馬達各自執行可調整動作
-- Current step: Mega 2560 同側偶數 header 腳位規劃已 commit，commit hash: 5d5fecb
-- Last updated: 2026-09-09 21:15:09 Asia/Taipei
+- Current step: PB7/D13 heartbeat LED 與上電自動啟動變更已 commit
+- Last updated: 2026-09-09 22:43:31 Asia/Taipei
 - Last agent: Codex
 
 ## Confirmed Facts
@@ -12,13 +12,18 @@
 - Arduino IDE 先前偵測到 Arduino Mega 2560 在 COM7
 - 使用者先前回報 Blink 上傳成功
 - 使用者確認有三套馬達與驅動板
+- 使用者回報目前馬達動作正常。
 - 照片確認為 28BYJ-48 12V DC 步進馬達與 ULN2003 類型驅動板
 - Git repository 已初始化
 - 初始架構 commit 已完成
-- Pin mapping commit completed: 5d5fecb
+- Pin mapping commit completed: 1c734c9
+- Auto-start and heartbeat commit completed.
 - 目前程式使用 Motor 1/2/3 命名，不使用 X/Y/Z 軸命名
 - motion_plan.h 是主要使用者可編輯動作設定檔
 - 目前程式可用 Arduino CLI 以 FQBN arduino:avr:mega clean compile 通過
+- 程式已改成上電自動開始馬達動作；Serial Monitor 仍保留資訊輸出與 r/s/? 指令。
+- 程式已新增 PB7/D13 heartbeat LED；上電後會持續閃爍，表示 MCU 還在執行。
+- 使用者用 Arduino IDE 上傳 heartbeat 版本成功，並確認 PB7/D13 板上 L LED 有 blink。
 
 ## Assumptions
 - 馬達 1：停 3 秒，正轉 45 度約 10 秒，停 3 秒，接著反轉/正轉/反轉各 45 度約 10 秒
@@ -30,10 +35,11 @@
 - Arduino GND 會和外部 12V 電源負極共地
 
 ## Open Issues / Blockers
+- Upload attempt: Arduino CLI upload to COM7 failed with Access is denied.
 - 外部 12V 電源電流規格尚未確認
 - 馬達 2 描述包含「半圈」與「70 度」兩種資訊；需確認到底是 70 度還是 180 度
 - 實體接線尚未驗證
-- 修改後的動作程式尚未 upload 到板子
+- heartbeat 版本已由使用者用 Arduino IDE 上傳成功，並確認 PB7/D13 板上 L LED 有 blink
 - Codex 執行 git 指令時需加單次 safe.directory，原因是資料夾擁有者與 sandbox 使用者不同
 
 ## Files Changed or Reviewed

@@ -22,9 +22,27 @@ MotionProgramState motor2Program = {&motor2, MOTOR_2_PLAN, MOTOR_2_PLAN_COUNT, 0
 MotionProgramState motor3Program = {&motor3, MOTOR_3_PLAN, MOTOR_3_PLAN_COUNT, 0, false, false, 0};
 
 bool programsRunning = false;
+bool heartbeatLedOn = false;
+unsigned long lastHeartbeatToggleMs = 0;
 
-long degreesToHalfSteps(float degrees) {
-  float positiveDegrees = degrees < 0 ? -degrees : degrees;
+void setupHeartbeatLed() {
+  pinMode(HEARTBEAT_LED_PIN, OUTPUT);
+  digitalWrite(HEARTBEAT_LED_PIN, LOW);
+}
+
+void updateHeartbeatLed() {
+  unsigned long now = millis();
+
+  if (now - lastHeartbeatToggleMs < HEARTBEAT_BLINK_INTERVAL_MS) {
+    return;
+  }
+
+  lastHeartbeatToggleMs = now;
+  heartbeatLedOn = !heartbeatLedOn;
+  digitalWrite(HEARTBEAT_LED_PIN, heartbeatLedOn ? HIGH : LOW);
+}
+
+long degreesToHalfSteps(float degrees) {  float positiveDegrees = degrees < 0 ? -degrees : degrees;
   long halfSteps = (long)((positiveDegrees * HALF_STEPS_PER_REVOLUTION / 360.0) + 0.5);
   return halfSteps < 1 ? 1 : halfSteps;
 }
@@ -39,6 +57,8 @@ void printHelp() {
   Serial.println("Stepper3Motors 指令:");
   Serial.println("  ? = 顯示說明");
   Serial.println("  r = 開始或重新開始三顆馬達動作");
+  Serial.println("  上電後會自動開始；沒有接 USB 也會動作");
+  Serial.println("  PB7/D13 板上 LED 會持續閃爍，表示 MCU 還在運作");
   Serial.println("  s = 停止並釋放三顆馬達");
   Serial.println();
 }
@@ -156,17 +176,27 @@ void handleCommand(char command) {
 
 void setup() {
   Serial.begin(SERIAL_BAUD_RATE);
+  setupHeartbeatLed();
 
   motor1.begin();
   motor2.begin();
   motor3.begin();
 
-  stopAllPrograms();
   Serial.println("Stepper3Motors 已準備好。");
   printHelp();
+
+  if (START_PROGRAMS_ON_POWER) {
+    if (START_DELAY_MS > 0) {
+      delay(START_DELAY_MS);
+    }
+    startAllPrograms();
+  } else {
+    stopAllPrograms();
+  }
 }
 
 void loop() {
+  updateHeartbeatLed();
   while (Serial.available() > 0) {
     handleCommand(Serial.read());
   }
