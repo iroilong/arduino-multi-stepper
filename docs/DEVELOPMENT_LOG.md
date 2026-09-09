@@ -11,3 +11,4 @@
 - ✅ Confirmed - 2026-09-09: Replaced the CSV-to-generated-header idea with a simpler direct-edit motion_plan.h workflow for non-programmer users; clean compile passed.
 - ⚠️ Open Issue - 2026-09-09: Motor 2 wording includes both half-turn and 70 degrees; current code uses 70 degrees until confirmed otherwise.
 - ⚠️ Open Issue - 2026-09-09: External 12V power supply current rating, physical wiring, and real movement direction are not confirmed yet.
+- ✅ Confirmed - 2026-09-09: Changed motor wiring pin plan to same-side even-numbered Mega header pins: Motor 1 D22/D24/D26/D28, Motor 2 D30/D32/D34/D36, Motor 3 D38/D40/D42/D44.

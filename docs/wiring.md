@@ -10,9 +10,9 @@
 
 | 馬達 | ULN2003 IN1 | ULN2003 IN2 | ULN2003 IN3 | ULN2003 IN4 |
 | --- | ---: | ---: | ---: | ---: |
-| 馬達 1 | Mega D22 | Mega D23 | Mega D24 | Mega D25 |
-| 馬達 2 | Mega D26 | Mega D27 | Mega D28 | Mega D29 |
-| 馬達 3 | Mega D30 | Mega D31 | Mega D32 | Mega D33 |
+| 馬達 1 | Mega D22 | Mega D24 | Mega D26 | Mega D28 |
+| 馬達 2 | Mega D30 | Mega D32 | Mega D34 | Mega D36 |
+| 馬達 3 | Mega D38 | Mega D40 | Mega D42 | Mega D44 |
 
 ## 馬達接法
 
@@ -32,3 +32,4 @@
 - 馬達電源由外部 12V 電源供應。
 - 改接線前先拔掉馬達電源。
 - 先只接馬達 1，測試成功後再接馬達 2 和馬達 3。
+- 目前 IN1-IN4 都安排在 Mega 2560 右側長排 header 的同一側偶數腳位，方便排線整齊插接。
