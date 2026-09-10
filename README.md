@@ -4,13 +4,13 @@
 
 ## 給一般使用者
 
-如果只是要調整馬達動作，通常只需要修改這個檔案：
+如果只是要確認硬體接線或調整馬達動作，通常只需要修改這個檔案：
 
 ```text
 motion_plan.h
 ```
 
-請在 `motion_plan.h` 裡找到「使用者設定區」，修改三個清單：
+請在 `motion_plan.h` 裡看「使用者設定區 1：硬體接線」，並在「使用者設定區 2：馬達動作」修改三個清單：
 
 - `MOTOR_1_PLAN`：馬達 1 的動作
 - `MOTOR_2_PLAN`：馬達 2 的動作
@@ -48,7 +48,7 @@ MOVE_DEGREES(-45, 10),  // 反轉 45 度，約 10 秒完成
 ## 操作方式
 
 1. 用 Arduino IDE 開啟 `Stepper3Motors.ino`。
-2. 選擇 `Arduino Mega or Mega 2560` 與正確的 COM port。
+2. 在 Arduino IDE 左上角確認已選到 `Arduino Mega or Mega 2560` 與正確的 COM port；若沒有，點左上角選單或 `Select other board and port...` 選擇。
 3. 上傳程式到 Arduino。
 4. 之後 Arduino 一上電就會自動開始三顆馬達動作，不需要接 USB 或打開 Serial Monitor。
 5. 上電後板上 `PB7/D13` 的 `L` LED 會持續閃爍，表示 MCU 還在運作。

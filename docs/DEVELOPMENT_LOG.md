@@ -1,5 +1,5 @@
 ## Quick Start
-用 Arduino IDE 2 開啟 C:\BruceTsao\06_MCU\Arduino\Project\MEGA2560\20260909_Stepper3Motors\Stepper3Motors。狀態：Git 已初始化、硬體照片已確認、程式已改成三顆 Motor 1/2/3 各自執行動作，且 Arduino Mega 2560 clean compile 先前通過。一般使用者只需要修改 motion_plan.h 的「使用者設定區」。目前已有繁中使用說明 docs/使用說明.md、docs/使用說明.txt、docs/使用說明.pdf。下一步：檢查文件 diff 後，依 Bruce 的 full approval flow 取得核准再 commit。關鍵檔案：motion_plan.h、Stepper3Motors.ino、config.h、docs/使用說明.md、docs/使用說明.txt、docs/使用說明.pdf。
+用 Arduino IDE 2 開啟 C:\BruceTsao\06_MCU\Arduino\Project\MEGA2560\20260909_Stepper3Motors\Stepper3Motors。狀態：Git 已初始化、硬體照片已確認、程式已改成三顆 Motor 1/2/3 各自執行動作，且 Arduino Mega 2560 clean compile 通過。一般使用者只需要打開 motion_plan.h；該檔同時包含「使用者設定區 1：硬體接線」與「使用者設定區 2：馬達動作」。目前已有繁中使用說明 docs/使用說明.md、docs/使用說明.txt、docs/使用說明.pdf。下一步：檢查本次 diff 後，依 Bruce 的 full approval flow 取得核准再 commit。關鍵檔案：motion_plan.h、Stepper3Motors.ino、config.h、docs/使用說明.md、docs/使用說明.txt、docs/使用說明.pdf。
 
 ## Timeline
 - ✅ Confirmed - 2026-09-09: Arduino IDE 2 installed; user reported Blink upload success on Arduino Mega 2560.
@@ -18,3 +18,5 @@
 - ✅ Confirmed - 2026-09-09: Added standalone Traditional Chinese user guide for wiring, editing motion_plan.h, and uploading with Arduino IDE.
 - ✅ Confirmed - 2026-09-09: Renamed the standalone user guide to docs/使用說明.md so non-programmer users can identify it more easily.
 - ✅ Confirmed - 2026-09-09: Generated docs/使用說明.txt and docs/使用說明.pdf from the same Traditional Chinese guide content for users who may not be able to open Markdown files.
+- ✅ Confirmed - 2026-09-10: Moved Motor 1/2/3 ULN2003 IN1-IN4 pin assignments into motion_plan.h so users can see wiring and motion plan in one file; Arduino Mega 2560 clean compile passed.
+- ✅ Confirmed - 2026-09-10: Updated user guide upload instructions to prioritize the Arduino IDE 2 top-left Board/Port selector, with Tools menu only as a fallback.

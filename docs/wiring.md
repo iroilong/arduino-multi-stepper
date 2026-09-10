@@ -8,6 +8,9 @@
 
 ## 訊號線接法
 
+同一份 pin 對接也寫在專案根目錄的 `motion_plan.h`。如果實際接線改變，請同步修改 `motion_plan.h` 的「使用者設定區 1：硬體接線」。
+
+
 | 馬達 | ULN2003 IN1 | ULN2003 IN2 | ULN2003 IN3 | ULN2003 IN4 |
 | --- | ---: | ---: | ---: | ---: |
 | 馬達 1 | Mega D22 | Mega D24 | Mega D26 | Mega D28 |
