@@ -1,7 +1,10 @@
 ## Quick Start
-用 Arduino IDE 2 開啟 C:\BruceTsao\06_MCU\Arduino\Project\MEGA2560\20260909_Stepper3Motors\Stepper3Motors。狀態：Git 已初始化、硬體照片已確認、程式已改成三顆 Motor 1/2/3 各自執行動作，且 Arduino Mega 2560 clean compile 通過。一般使用者只需要打開 motion_plan.h；該檔同時包含「使用者設定區 1：硬體接線」與「使用者設定區 2：馬達動作」。目前已有繁中使用說明 docs/使用說明.md、docs/使用說明.txt、docs/使用說明.pdf。下一步：檢查本次 diff 後，依 Bruce 的 full approval flow 取得核准再 commit。關鍵檔案：motion_plan.h、Stepper3Motors.ino、config.h、docs/使用說明.md、docs/使用說明.txt、docs/使用說明.pdf。
+用 Arduino IDE 2 開啟 `Stepper3Motors/Stepper3Motors.ino`。Repo 與 Arduino Sketch 已分層；全部程式原始碼位於 `Stepper3Motors/`，一般使用者主要修改 `Stepper3Motors/motion_plan.h`。目前程式會讓三顆 Motor 1/2/3 各自執行動作；資料夾搬移後已使用 Arduino CLI 與 Mega 2560 目標重新編譯成功，並已發布至 GitHub。使用說明位於 `docs/使用說明.md`、`docs/使用說明.txt`、`docs/使用說明.pdf`。
 
 ## Timeline
+- ✅ Confirmed - 2026-10-19: Committed the verified sketch-folder reorganization and published `main` to `https://github.com/iroilong/arduino-multi-stepper.git`.
+- ✅ Confirmed - 2026-10-19: Verified the relocated `Stepper3Motors/Stepper3Motors.ino` with portable Arduino CLI 1.5.2-rc.1, Arduino AVR Boards 1.8.8, and FQBN `arduino:avr:mega`; compile passed using 6,944 bytes of flash and 930 bytes of dynamic memory.
+- ✅ Confirmed - 2026-10-19: Separated the repository root from the Arduino Sketch root by moving all six source files into `Stepper3Motors/`; this preserves the required `Stepper3Motors/Stepper3Motors.ino` folder/file name match when the GitHub repository uses a different name.
 - ✅ Confirmed - 2026-09-09: Arduino IDE 2 installed; user reported Blink upload success on Arduino Mega 2560.
 - ✅ Confirmed - 2026-09-09: Initialized Git repository and created beginner-friendly three-stepper project skeleton.
 - ✅ Confirmed - 2026-09-09: Starter skeleton compiled successfully with Arduino CLI FQBN arduino:avr:mega.
